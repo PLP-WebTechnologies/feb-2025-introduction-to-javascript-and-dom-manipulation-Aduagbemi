@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro to JavaScript & DOM</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #changeMe {
+      color: blue;
+      font-size: 20px;
+    }
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to JavaScript DOM Manipulation</h1>
+  </header>
+
+  <main>
+    <section>
+      <p id="changeMe">This is a sample paragraph.</p>
+      <button onclick="changeText()">Change Text</button>
+    </section>
+
+    <section>
+      <button onclick="changeStyle()">Change Style</button>
+    </section>
+
+    <section>
+      <button onclick="addElement()">Add New Element</button>
+      <button onclick="removeElement()">Remove Element</button>
+      <div id="container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by You — Happy Coding! 💻✨</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+// Change the text content of an element
+function changeText() {
+  document.getElementById("changeMe").textContent = "The text has been changed!";
+}
+
+// Modify CSS styles
+function changeStyle() {
+  const element = document.getElementById("changeMe");
+  element.style.color = "green";
+  element.style.fontWeight = "bold";
+  element.classList.toggle("highlight");
+}
+
+// Add a new element to the page
+function addElement() {
+  const newElement = document.createElement("p");
+  newElement.textContent = "🌟 New paragraph added!";
+  newElement.style.color = "purple";
+  document.getElementById("container").appendChild(newElement);
+}
+
+// Remove the last added element
+function removeElement() {
+  const container = document.getElementById("container");
+  if (container.lastChild) {
+    container.removeChild(container.lastChild);
+  }
+}
